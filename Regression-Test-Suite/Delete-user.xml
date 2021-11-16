@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="0697ab7f-fd24-490f-b0fc-fab814d88754" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Delete user" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0697ab7f-fd24-490f-b0fc-fab814d88754fileName">Delete-user</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="9ad9e3c8-f0ca-4c17-90f3-46ba6c8e6c4c">
+    <con:settings/>
+    <con:config service="GetUser" methodName="Method 4" resourcePath="/api/v1/user/" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="b1d27562-a93b-4227-86fc-cd5e0da5a7bf" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://www.test-insurance.com</con:endpoint>
+        <con:request>{
+   "primaryPerson" : {
+      "email" : "${Data Source#email}",
+      "title" : "${Data Source#title}",
+      "firstName" : "${Data Source#firstName}",
+      "lastName" : "${Data Source#lastName}",
+      "gender" : "${Data Source#gender}",
+      "maritalStatus" : "${Data Source#maritalStatus}",
+      "employmentStatus" : "${Data Source#employmentStatus}",
+      "dateOfBirth" : "${Data Source#dateOfBirth}",
+      "languagePref" : "${Data Source#languagePref}"
+   },
+   "primaryPersonMailingAddress" : {
+      "addressType" : "${Data Source#addressType}",
+      "addressLine1" : "${Data Source#addressLine1}",
+      "city" : "${Data Source#city}",
+      "state" : "${Data Source#state}",
+      "postalCode" : "${Data Source#postalCode}",
+      "countryCode" : "${Data Source#countryCode}"
+   },
+   "primaryPersonPhone" : {
+      "phoneNumber" : "${Data Source#phoneNumber}",
+      "phoneExtension" : "${Data Source#phoneExtension}",
+      "phoneTime" : "${Data Source#phoneTime}",
+      "phoneType" : "${Data Source#phoneType}"
+   }
+}</con:request>
+        <con:originalUri>https://www.test-insurance.com/api/v1/user/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="5d372b33-8162-46ce-ba73-97d63815cccc" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="6452f7ff-8952-4a5a-bb84-f6a66ab36afb" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
